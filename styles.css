@@ -519,19 +519,19 @@ footer {
 }
 
 /* ===========================================
-   PRINT STYLES — A5 BOOKLET
+   PRINT STYLES — A4 
    =========================================== */
 @media print {
     @page {
-        size: 154mm 216mm;
-        margin: 10mm 12mm;
+        size: A4;
+        margin: 20mm;
     }
 
     body {
         background-color: white !important;
         color: black !important;
-        font-size: 8.5pt;
-        line-height: 1.45;
+        font-size: 10.5pt;
+        line-height: 1.5;
         padding: 0;
         margin: 0;
     }
@@ -545,44 +545,44 @@ footer {
     }
 
     /* --- Print Typography --- */
-    h1 { font-size: 22pt; margin-bottom: 6pt; color: black; }
-    .cover-title { font-size: 26pt; margin-top: 8pt; line-height: 1.1; letter-spacing: -0.02em; }
+    h1 { font-size: 32pt; margin-bottom: 8pt; color: black; }
+    .cover-title { font-size: 38pt; margin-top: 12pt; line-height: 1.1; letter-spacing: -0.02em; }
     
     h2 { 
-        font-size: 12pt; 
-        margin-top: 14pt; 
-        margin-bottom: 8pt; 
+        font-size: 18pt; 
+        margin-top: 20pt; 
+        margin-bottom: 10pt; 
         border-bottom: none;
-        padding-bottom: 5pt; 
+        padding-bottom: 6pt; 
         color: black; 
     }
     h2::after {
-        height: 2pt;
-        width: 40pt;
+        height: 2.5pt;
+        width: 50pt;
         background: black;
     }
     
-    h3 { font-size: 9.5pt; margin-top: 10pt; margin-bottom: 4pt; color: black; }
-    p { margin-bottom: 7pt; text-align: justify; orphans: 3; widows: 3; color: black; }
-    li { color: black; }
-    li::before { background: black; }
+    h3 { font-size: 14pt; margin-top: 15pt; margin-bottom: 6pt; color: black; }
+    p { margin-bottom: 10pt; text-align: justify; orphans: 3; widows: 3; color: black; }
+    li { color: black; margin-bottom: 6pt; }
+    li::before { background: black; width: 4pt; height: 4pt; }
     
-    .subtitle { font-size: 11pt; margin-bottom: 10pt; color: black; }
+    .subtitle { font-size: 16pt; margin-bottom: 15pt; color: black; }
     .lead { 
-        font-size: 9.5pt; 
-        margin-bottom: 10pt; 
-        border-left: 2pt solid black; 
-        padding-left: 8pt; 
+        font-size: 13pt; 
+        margin-bottom: 15pt; 
+        border-left: 3pt solid black; 
+        padding-left: 12pt; 
         color: black; 
         background: none;
-        padding-top: 0;
-        padding-bottom: 0;
+        padding-top: 2pt;
+        padding-bottom: 2pt;
     }
 
-    .cover-page { padding: 10mm; }
+    .cover-page { padding: 0; }
     .print-page:not(.cover-page) { padding: 0; }
-    .cover-intro { font-size: 10pt; margin-top: 15pt; }
-    .header-top { font-size: 6.5pt; border-bottom-width: 1pt; margin-bottom: 8pt; padding-bottom: 3pt; color: black; border-color: black; }
+    .cover-intro { font-size: 14pt; margin-top: 25pt; }
+    .header-top { font-size: 9pt; border-bottom-width: 1.5pt; margin-bottom: 12pt; padding-bottom: 6pt; color: black; border-color: black; }
     .group-credit { max-width: 70%; }
 
     /* --- Page Breaks --- */
@@ -604,10 +604,10 @@ footer {
         display: flex;
         justify-content: space-between;
         font-family: var(--font-display);
-        font-size: 6pt;
-        border-bottom: 0.5pt solid black;
-        margin-bottom: 10pt;
-        padding-bottom: 3pt;
+        font-size: 8pt;
+        border-bottom: 1pt solid black;
+        margin-bottom: 15pt;
+        padding-bottom: 5pt;
         text-transform: uppercase;
         color: black;
     }
@@ -615,7 +615,7 @@ footer {
     /* --- Print Images --- */
     .editorial-image {
         filter: grayscale(100%) contrast(120%) !important;
-        border: 0.5pt solid #999;
+        border: 1pt solid #666;
     }
     
     .hero-image {
@@ -627,58 +627,59 @@ footer {
         width: auto; 
         height: auto; 
         max-width: 100%; 
-        max-height: 110mm; 
+        max-height: 160mm; 
         object-fit: contain; 
     }
     
     .inline-image .editorial-image {
-        height: 55mm;
-        margin-top: 6pt;
-        margin-bottom: 6pt;
-    }
-
-    .full-bleed-image {
-        margin-left: -12mm !important;
-        margin-right: -12mm !important;
-        width: calc(100% + 24mm) !important;
+        height: 80mm;
         margin-top: 10pt;
         margin-bottom: 10pt;
     }
-    
-    .full-bleed-image .editorial-image {
-        height: 70mm;
-        border: none;
+
+    .full-bleed-image {
+        margin-left: -20mm !important;
+        margin-right: -20mm !important;
+        width: 210mm !important;
+        margin-top: 15pt;
+        margin-bottom: 15pt;
     }
     
-    .left-float { width: 42%; margin-right: 8pt; margin-bottom: 6pt; }
-    .right-float { width: 42%; margin-left: 8pt; margin-bottom: 6pt; }
+    .full-bleed-image .editorial-image {
+        height: 100mm;
+        border-left: none;
+        border-right: none;
+    }
+    
+    .left-float { width: 45%; margin-right: 15pt; margin-bottom: 10pt; }
+    .right-float { width: 45%; margin-left: 15pt; margin-bottom: 10pt; }
 
     /* --- Print Blockquotes --- */
     blockquote {
-        font-size: 9.5pt;
-        padding: 10pt 12pt 10pt 14pt;
-        margin: 10pt 0;
-        border-left: 1.5pt solid black;
+        font-size: 13pt;
+        padding: 15pt 20pt 15pt 22pt;
+        margin: 15pt 0;
+        border-left: 3pt solid black;
         background: transparent;
         break-inside: avoid;
         color: black;
     }
     blockquote::before { display: none; }
-    blockquote cite { font-size: 6.5pt; margin-top: 5pt; color: black; }
+    blockquote cite { font-size: 9pt; margin-top: 8pt; color: black; }
 
     /* --- Print Budget Table --- */
     .budget-table {
-        margin: 10pt 0;
-        font-size: 7pt;
-        border: 0.5pt solid black;
+        margin: 15pt 0;
+        font-size: 9pt;
+        border: 1pt solid black;
         box-shadow: none;
     }
     .budget-table thead { background: transparent; }
-    .budget-table th { color: black; border-bottom: 1pt solid black; padding: 4pt 5pt; background: transparent; }
-    .budget-table td { border-bottom: 0.25pt solid #aaa; padding: 3.5pt 5pt; }
+    .budget-table th { color: black; border-bottom: 1.5pt solid black; padding: 6pt; background: transparent; }
+    .budget-table td { border-bottom: 0.5pt solid #888; padding: 6pt; }
     .budget-table td:nth-child(2) { color: black; }
     .budget-table tbody tr:nth-child(even) { background: transparent; }
-    .budget-table tfoot td { border-top: 1pt solid black; background: transparent; }
+    .budget-table tfoot td { border-top: 2pt solid black; background: transparent; }
 
     /* --- Print Utility --- */
     .digital-only { display: none !important; }
@@ -687,32 +688,33 @@ footer {
     /* --- Print QR --- */
     .qr-container {
         justify-content: center;
-        gap: 15pt;
-        margin-top: 15pt;
-        padding-top: 8pt;
-        border-top: 0.5pt solid black;
+        gap: 30pt;
+        margin-top: 30pt;
+        padding-top: 15pt;
+        border-top: 1pt solid black;
     }
     .qr-code-box img {
-        width: 28mm;
-        height: 28mm;
-        border: 0.5pt solid black;
-        padding: 2pt;
+        width: 45mm;
+        height: 45mm;
+        border: 1pt solid black;
+        padding: 4pt;
     }
-    .qr-caption { font-size: 5.5pt; color: black; margin-top: 3pt; }
+    .qr-caption { font-size: 8pt; color: black; margin-top: 6pt; }
     
     footer { 
         display: block; 
-        margin-top: 15pt;
-        padding: 6pt 0 0 0;
-        border-top: 0.5pt solid black;
-        font-size: 5.5pt;
+        margin-top: 20pt;
+        padding: 10pt 0 0 0;
+        border-top: 1pt solid black;
+        font-size: 8pt;
         color: black;
     }
 
     /* --- Print List Styling --- */
     .theory-list li, .inquiries-list li {
-        border-left: 1pt solid #999;
-        padding-left: 8pt;
-        margin-bottom: 6pt;
+        border-left: 1.5pt solid #666;
+        padding-left: 12pt;
+        margin-bottom: 8pt;
     }
 }
+
