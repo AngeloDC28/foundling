@@ -1,91 +1,118 @@
-/* ----------------------------------------
-   BASE DIGITAL STYLES (Mobile-First)
----------------------------------------- */
+/* ============================================
+   FOUNDLING LEAFLET — PREMIUM EDITORIAL DESIGN
+   ============================================ */
+
+/* --- Custom Properties --- */
 :root {
-    /* Archival Paper Theme */
-    --bg-color: #Fdfbf7;
-    --paper-shade: #f4f1ea;
-    --text-color: #1a1a1a;
-    --accent-color: #4a4a4a;
-    --highlight: #8c211e; /* Subtle Foundling Red */
-    --border-color: #d1cdb8;
+    --bg-cream: #f8f5ef;
+    --paper-white: #ffffff;
+    --ink-black: #111111;
+    --ink-soft: #2d2d2d;
+    --ink-muted: #5a5a5a;
+    --foundling-red: #8c211e;
+    --foundling-red-light: #b63a36;
+    --foundling-gold: #c5a55a;
+    --border-warm: #d4cfc0;
+    --border-light: #e8e4da;
+    --block-bg: #f3f0e8;
     
-    --font-sans: 'Inter', sans-serif;
-    --font-serif: 'Lora', serif;
+    --font-display: 'Inter', system-ui, sans-serif;
+    --font-body: 'Lora', Georgia, serif;
     
     --base-size: 1.05rem;
     --scale: 1.25;
+    --page-gutter: 5rem;
 }
 
-* {
+/* --- Reset --- */
+*, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+/* --- Body --- */
 body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    font-family: var(--font-serif);
+    background-color: var(--bg-cream);
+    color: var(--ink-soft);
+    font-family: var(--font-body);
     font-size: var(--base-size);
-    line-height: 1.7;
-    padding: 2rem 1rem;
+    line-height: 1.75;
+    padding: 3rem 1.5rem;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
+/* --- Page Container --- */
 .page-container {
-    max-width: 1000px; /* Reduced for better reading length */
+    max-width: 880px;
     margin: 0 auto;
-    background-color: #ffffff;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
-    padding: 2rem;
-    border: 1px solid var(--border-color);
+    background-color: var(--paper-white);
+    box-shadow: 
+        0 1px 3px rgba(0,0,0,0.04),
+        0 8px 30px rgba(0,0,0,0.06),
+        0 30px 60px rgba(0,0,0,0.03);
+    border: 1px solid var(--border-light);
 }
 
-/* Typography Enhancements */
+/* ===========================================
+   TYPOGRAPHY
+   =========================================== */
 h1, h2, h3, h4, .meta-info, .year {
-    font-family: var(--font-sans);
+    font-family: var(--font-display);
 }
 
 h1 {
-    font-size: calc(var(--base-size) * var(--scale) * var(--scale) * var(--scale));
-    line-height: 1.15;
-    letter-spacing: -0.03em;
-    margin-bottom: 0.75rem;
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    line-height: 1.12;
+    letter-spacing: -0.035em;
     font-weight: 600;
-    color: var(--text-color);
+    color: var(--ink-black);
 }
 
 h2 {
     font-size: calc(var(--base-size) * var(--scale) * var(--scale));
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 0.5rem;
-    margin-top: 3.5rem;
-    margin-bottom: 1.5rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
     font-weight: 600;
-    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-black);
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.6rem;
+    border-bottom: none;
+    position: relative;
+}
+
+/* Elegant underline accent for h2 */
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--foundling-red);
 }
 
 h3 {
     font-size: calc(var(--base-size) * var(--scale));
+    font-weight: 600;
     margin-top: 2rem;
     margin-bottom: 0.75rem;
-    font-weight: 600;
-    color: var(--accent-color);
+    color: var(--foundling-red);
+    letter-spacing: 0.01em;
 }
 
 p {
     margin-bottom: 1.25rem;
-    color: #2c2c2c;
+    color: var(--ink-soft);
 }
 
+/* --- Subtitle & Lead --- */
 .subtitle {
-    font-family: var(--font-sans);
+    font-family: var(--font-display);
     font-size: calc(var(--base-size) * var(--scale));
-    color: var(--accent-color);
+    color: var(--ink-muted);
     margin-bottom: 2.5rem;
     font-weight: 400;
     letter-spacing: 0.02em;
@@ -94,37 +121,44 @@ p {
 .lead {
     font-size: calc(var(--base-size) * 1.15);
     font-style: italic;
-    border-left: 3px solid var(--highlight);
+    border-left: 4px solid var(--foundling-red);
     padding-left: 1.5rem;
     margin-bottom: 2.5rem;
-    color: var(--accent-color);
+    color: var(--ink-muted);
+    background: linear-gradient(90deg, rgba(140,33,30,0.04) 0%, transparent 100%);
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
 }
 
-/* Drop Cap Effect for first paragraph after an H2 */
+/* --- Drop Cap --- */
 h2 + p::first-letter {
     float: left;
-    font-size: 3.5rem;
-    line-height: 0.8;
-    padding-top: 0.2rem;
-    padding-right: 0.5rem;
-    padding-bottom: 0.2rem;
-    font-family: var(--font-sans);
+    font-size: 3.8rem;
+    line-height: 0.78;
+    padding-top: 0.22rem;
+    padding-right: 0.55rem;
+    padding-bottom: 0.1rem;
+    font-family: var(--font-display);
     font-weight: 600;
-    color: var(--text-color);
+    color: var(--foundling-red);
 }
 
-/* Header Meta */
+/* ===========================================
+   HEADER / META
+   =========================================== */
 .header-top {
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid var(--border-color);
+    align-items: center;
+    border-bottom: 2px solid var(--ink-black);
     padding-bottom: 0.75rem;
     margin-bottom: 2rem;
-    font-size: 0.8rem;
+    font-family: var(--font-display);
+    font-size: 0.72rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
     font-weight: 600;
-    color: var(--accent-color);
+    color: var(--ink-muted);
 }
 
 .group-credit {
@@ -133,108 +167,99 @@ h2 + p::first-letter {
     line-height: 1.4;
 }
 
-/* Lists */
+/* ===========================================
+   LISTS
+   =========================================== */
 ul {
-    margin-left: 1.5rem;
+    margin-left: 0;
     margin-bottom: 2rem;
+    list-style: none;
 }
 
 li {
-    margin-bottom: 0.75rem;
-    color: #2c2c2c;
-}
-
-/* Timeline Interactive */
-.timeline {
-    border-left: 2px solid var(--border-color);
-    padding-left: 2rem;
-    margin-left: 1rem;
-    margin-bottom: 2rem;
-}
-
-.timeline-item {
+    margin-bottom: 1rem;
+    color: var(--ink-soft);
+    padding-left: 1.5rem;
     position: relative;
-    margin-bottom: 2rem;
-    transition: transform 0.3s ease;
 }
 
-.timeline-item:hover {
-    transform: translateX(5px);
-}
-
-.timeline-item::before {
+li::before {
     content: '';
     position: absolute;
-    left: -2.45rem;
-    top: 0.4rem;
-    width: 0.8rem;
-    height: 0.8rem;
-    background-color: var(--bg-color);
-    border: 2px solid var(--highlight);
+    left: 0;
+    top: 0.65em;
+    width: 6px;
+    height: 6px;
+    background: var(--foundling-red);
     border-radius: 50%;
-    transition: background-color 0.3s ease;
 }
 
-.timeline-item:hover::before {
-    background-color: var(--highlight);
+.theory-list li, .inquiries-list li {
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+    border-left: 2px solid var(--border-warm);
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
 }
 
-.year {
-    display: inline-block;
-    font-weight: 600;
-    font-size: 0.85rem;
-    color: var(--highlight);
-    margin-bottom: 0.4rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
+.theory-list li::before, .inquiries-list li::before {
+    display: none;
 }
 
-/* Advanced Testimony Quotes */
+/* ===========================================
+   BLOCKQUOTE (PULL-QUOTE STYLE)
+   =========================================== */
 blockquote {
     position: relative;
-    font-size: calc(var(--base-size) * 1.1);
+    font-size: calc(var(--base-size) * 1.15);
     font-style: italic;
-    margin: 3rem 0;
-    padding: 2.5rem 3rem;
-    background-color: var(--paper-shade);
-    border-left: 4px solid var(--text-color);
-    color: var(--text-color);
+    margin: 2.5rem 0;
+    padding: 2rem 2.5rem 2rem 3rem;
+    background: var(--block-bg);
+    border: none;
+    border-left: 5px solid var(--foundling-red);
+    color: var(--ink-black);
 }
 
 blockquote::before {
-    content: '"';
+    content: '\201C';
     position: absolute;
-    top: -10px;
-    left: 15px;
-    font-family: var(--font-sans);
-    font-size: 4rem;
-    color: rgba(0,0,0,0.1);
+    top: 0.25rem;
+    left: 0.75rem;
+    font-family: var(--font-body);
+    font-size: 4.5rem;
+    color: var(--foundling-red);
+    opacity: 0.25;
     line-height: 1;
 }
 
 blockquote cite {
     display: block;
-    font-size: 0.85rem;
-    margin-top: 1.5rem;
-    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    margin-top: 1rem;
+    font-family: var(--font-display);
     font-style: normal;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--accent-color);
+    letter-spacing: 0.08em;
+    color: var(--foundling-red);
 }
 
-/* Editorial Images with Hover */
+/* ===========================================
+   IMAGES
+   =========================================== */
 .editorial-image-container {
     margin-bottom: 2.5rem;
     overflow: hidden;
+    position: relative;
 }
 
 .editorial-image {
     width: 100%;
+    display: block;
     object-fit: cover;
-    filter: grayscale(80%) contrast(110%);
-    border: 1px solid var(--border-color);
+    filter: grayscale(70%) contrast(110%) brightness(1.02);
+    border: none;
     transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), filter 0.6s ease;
 }
 
@@ -243,41 +268,50 @@ blockquote cite {
     filter: grayscale(0%) contrast(100%);
 }
 
+/* Hero */
 .hero-image {
     display: flex;
     justify-content: center;
+    background: var(--ink-black);
+    margin: 0 calc(var(--page-gutter) * -1);
+    width: calc(100% + var(--page-gutter) * 2);
 }
 
 .hero-image .editorial-image {
     width: auto;
     height: auto;
     max-width: 100%;
-    max-height: 600px;
+    max-height: 500px;
     object-fit: contain;
+    filter: grayscale(60%) contrast(120%) brightness(0.95);
 }
 
+.hero-image:hover .editorial-image {
+    filter: grayscale(0%) contrast(100%) brightness(1);
+}
+
+/* Inline */
 .inline-image .editorial-image {
-    height: 250px;
+    height: 280px;
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
 
+/* Full Bleed */
 .full-bleed-image {
-    margin: 3rem -2rem; /* Pull out into the container padding */
-    width: calc(100% + 4rem);
+    margin: 2.5rem calc(var(--page-gutter) * -1);
+    width: calc(100% + var(--page-gutter) * 2);
 }
 
 .full-bleed-image .editorial-image {
-    height: 450px;
-    border-left: none;
-    border-right: none;
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
+    height: 380px;
+    border: none;
 }
 
+/* Float */
 .left-float {
     float: left;
-    width: 45%;
+    width: 44%;
     margin-right: 2rem;
     margin-bottom: 1.5rem;
     margin-top: 0.5rem;
@@ -285,93 +319,135 @@ blockquote cite {
 
 .right-float {
     float: right;
-    width: 45%;
+    width: 44%;
     margin-left: 2rem;
     margin-bottom: 1.5rem;
     margin-top: 0.5rem;
 }
 
-/* Clearfix for floats */
-main::after {
+/* Clearfix */
+main::after, section::after {
     content: "";
     display: table;
     clear: both;
 }
 
-/* Cover Page Specific */
+/* ===========================================
+   COVER PAGE
+   =========================================== */
 .cover-page {
     display: flex;
     flex-direction: column;
+    padding: var(--page-gutter);
 }
 
 .cover-title {
-    font-size: calc(var(--base-size) * 3);
-    margin-top: 2rem;
+    font-size: clamp(2.2rem, 6vw, 3.2rem);
+    margin-top: 1.5rem;
     margin-bottom: 1.5rem;
+    line-height: 1.08;
+    max-width: 90%;
 }
 
 .cover-intro {
     margin-top: 2rem;
 }
 
-/* Premium Budget Table */
+/* ===========================================
+   CONTENT PAGES (inner padding)
+   =========================================== */
+.print-page:not(.cover-page) {
+    padding: 2rem var(--page-gutter);
+}
+
+/* Section divider ornament between pages */
+.page-break {
+    height: 0;
+    border: none;
+    margin: 0;
+}
+
+/* Ornamental separator visible in digital view */
+.page-break::before {
+    content: '◆  ◆  ◆';
+    display: block;
+    text-align: center;
+    font-size: 0.6rem;
+    letter-spacing: 0.6em;
+    color: var(--foundling-red);
+    padding: 3rem 0;
+    opacity: 0.5;
+}
+
+/* ===========================================
+   BUDGET TABLE
+   =========================================== */
 .budget-table {
     width: 100%;
     border-collapse: collapse;
-    margin: 3rem 0;
-    font-size: 0.95rem;
+    margin: 2rem 0;
+    font-size: 0.92rem;
     background-color: white;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+    border: 1px solid var(--border-warm);
 }
 
 .budget-table th, .budget-table td {
-    padding: 1rem 1.25rem;
-    border-bottom: 1px solid var(--border-color);
+    padding: 0.85rem 1.1rem;
+    border-bottom: 1px solid var(--border-light);
     text-align: left;
     vertical-align: top;
+}
+
+.budget-table thead {
+    background: var(--ink-black);
+}
+
+.budget-table th {
+    font-family: var(--font-display);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: white;
+    font-size: 0.78rem;
 }
 
 .budget-table tbody tr {
     transition: background-color 0.2s ease;
 }
 
-.budget-table tbody tr:hover {
-    background-color: var(--paper-shade);
+.budget-table tbody tr:nth-child(even) {
+    background-color: rgba(0,0,0,0.015);
 }
 
-.budget-table th {
-    font-family: var(--font-sans);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    background-color: var(--text-color);
-    color: white;
-    font-size: 0.85rem;
+.budget-table tbody tr:hover {
+    background-color: var(--block-bg);
 }
 
 .budget-table td:nth-child(2) {
-    font-family: var(--font-sans);
+    font-family: var(--font-display);
     font-weight: 600;
-    color: var(--highlight);
+    color: var(--foundling-red);
     white-space: nowrap;
 }
 
 .budget-table tfoot td {
-    border-top: 3px solid var(--text-color);
+    border-top: 3px solid var(--ink-black);
     border-bottom: none;
-    font-family: var(--font-sans);
+    font-family: var(--font-display);
     font-weight: 600;
-    background-color: var(--paper-shade);
+    background-color: var(--block-bg);
 }
 
-/* QR Code Section */
+/* ===========================================
+   QR SECTION
+   =========================================== */
 .qr-container {
     display: flex;
     justify-content: center;
     gap: 3rem;
-    margin-top: 4rem;
-    padding-top: 3rem;
-    border-top: 1px solid var(--border-color);
+    margin-top: 3rem;
+    padding-top: 2.5rem;
+    border-top: 2px solid var(--border-warm);
 }
 
 .qr-code-box {
@@ -382,35 +458,40 @@ main::after {
 }
 
 .qr-code-box:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
 }
 
 .qr-code-box img {
-    width: 120px;
-    height: 120px;
-    border: 1px solid var(--border-color);
-    padding: 0.5rem;
+    width: 110px;
+    height: 110px;
+    border: 1px solid var(--border-warm);
+    padding: 0.4rem;
     background: white;
 }
 
 .qr-caption {
-    font-family: var(--font-sans);
-    font-size: 0.75rem;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     margin-top: 0.75rem;
     text-align: center;
-    color: var(--accent-color);
+    color: var(--ink-muted);
 }
 
+/* ===========================================
+   FOOTER
+   =========================================== */
 footer {
-    margin-top: 5rem;
+    margin-top: 4rem;
+    padding: 2rem var(--page-gutter);
     text-align: center;
-    font-family: var(--font-sans);
-    font-size: 0.75rem;
+    font-family: var(--font-display);
+    font-size: 0.72rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--accent-color);
+    letter-spacing: 0.12em;
+    color: var(--ink-muted);
+    border-top: 2px solid var(--ink-black);
 }
 
 /* Print Only Elements */
@@ -418,38 +499,40 @@ footer {
     display: none;
 }
 
-/* ----------------------------------------
-   DESKTOP STYLES (Digital)
----------------------------------------- */
+/* ===========================================
+   DESKTOP BREAKPOINT
+   =========================================== */
 @media screen and (min-width: 768px) {
     body {
         padding: 4rem;
     }
-    .page-container {
-        padding: 4rem 5rem;
-    }
     .full-bleed-image {
-        margin: 4rem -5rem; 
-        width: calc(100% + 10rem);
+        margin-left: calc(var(--page-gutter) * -1);
+        margin-right: calc(var(--page-gutter) * -1);
+        width: calc(100% + var(--page-gutter) * 2);
+    }
+    .hero-image {
+        margin-left: calc(var(--page-gutter) * -1);
+        margin-right: calc(var(--page-gutter) * -1);
+        width: calc(100% + var(--page-gutter) * 2);
     }
 }
 
-/* ----------------------------------------
-   PRINT STYLES (A5 Booklet + Bleed)
----------------------------------------- */
+/* ===========================================
+   PRINT STYLES — A5 BOOKLET
+   =========================================== */
 @media print {
     @page {
-        size: 154mm 216mm; /* A5 + 3mm Bleed */
-        margin: 3mm;
+        size: 154mm 216mm;
+        margin: 10mm 12mm;
     }
 
-    /* Print Setup */
     body {
         background-color: white !important;
-        color: device-cmyk(0, 0, 0, 1) !important;
+        color: black !important;
         font-size: 8.5pt;
-        line-height: 1.4;
-        padding: 15mm; 
+        line-height: 1.45;
+        padding: 0;
         margin: 0;
     }
 
@@ -458,28 +541,53 @@ footer {
         border: none;
         padding: 0;
         max-width: none;
-        background-color: transparent !important;
+        background: transparent !important;
     }
 
-    /* Reset Typography to pt */
-    h1 { font-size: 24pt; margin-bottom: 6pt; }
-    .cover-title { font-size: 28pt; margin-top: 10pt; line-height: 1.1; letter-spacing: -0.02em; }
-    h2 { font-size: 13pt; margin-top: 16pt; margin-bottom: 6pt; border-bottom: 0.5pt solid black; padding-bottom: 3pt; color: black; }
-    h3 { font-size: 10pt; margin-top: 12pt; margin-bottom: 4pt; color: black; }
-    h4 { font-size: 9pt; margin-bottom: 2pt; }
-    p { margin-bottom: 8pt; text-align: justify; orphans: 3; widows: 3; color: black; }
-    li { color: black; }
+    /* --- Print Typography --- */
+    h1 { font-size: 22pt; margin-bottom: 6pt; color: black; }
+    .cover-title { font-size: 26pt; margin-top: 8pt; line-height: 1.1; letter-spacing: -0.02em; }
     
-    .subtitle { font-size: 12pt; margin-bottom: 12pt; color: black; }
-    .lead { font-size: 10pt; margin-bottom: 12pt; border-left-width: 2pt; padding-left: 6pt; color: black; border-color: black; }
-    .cover-intro { font-size: 10.5pt; margin-top: 20pt; }
-    .header-top { font-size: 7pt; border-bottom-width: 1pt; margin-bottom: 10pt; padding-bottom: 4pt; color: black; }
+    h2 { 
+        font-size: 12pt; 
+        margin-top: 14pt; 
+        margin-bottom: 8pt; 
+        border-bottom: none;
+        padding-bottom: 5pt; 
+        color: black; 
+    }
+    h2::after {
+        height: 2pt;
+        width: 40pt;
+        background: black;
+    }
+    
+    h3 { font-size: 9.5pt; margin-top: 10pt; margin-bottom: 4pt; color: black; }
+    p { margin-bottom: 7pt; text-align: justify; orphans: 3; widows: 3; color: black; }
+    li { color: black; }
+    li::before { background: black; }
+    
+    .subtitle { font-size: 11pt; margin-bottom: 10pt; color: black; }
+    .lead { 
+        font-size: 9.5pt; 
+        margin-bottom: 10pt; 
+        border-left: 2pt solid black; 
+        padding-left: 8pt; 
+        color: black; 
+        background: none;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .cover-page { padding: 10mm; }
+    .print-page:not(.cover-page) { padding: 0; }
+    .cover-intro { font-size: 10pt; margin-top: 15pt; }
+    .header-top { font-size: 6.5pt; border-bottom-width: 1pt; margin-bottom: 8pt; padding-bottom: 3pt; color: black; border-color: black; }
     .group-credit { max-width: 70%; }
 
-    /* Page Break System */
+    /* --- Page Breaks --- */
     .print-page {
         position: relative;
-        height: 100%;
         break-inside: avoid;
         page-break-inside: avoid;
     }
@@ -488,103 +596,123 @@ footer {
         page-break-before: always;
         break-before: page;
     }
+    .page-break::before {
+        display: none;
+    }
     
     .page-header {
         display: flex;
         justify-content: space-between;
-        font-family: var(--font-sans);
-        font-size: 6.5pt;
+        font-family: var(--font-display);
+        font-size: 6pt;
         border-bottom: 0.5pt solid black;
-        margin-bottom: 12pt;
-        padding-bottom: 4pt;
+        margin-bottom: 10pt;
+        padding-bottom: 3pt;
         text-transform: uppercase;
         color: black;
     }
 
-    /* Print Images */
+    /* --- Print Images --- */
     .editorial-image {
         filter: grayscale(100%) contrast(120%) !important;
-        border: 0.5pt solid black;
+        border: 0.5pt solid #999;
     }
     
-    .hero-image .editorial-image { width: auto; height: auto; max-width: 100%; max-height: 130mm; object-fit: contain; }
+    .hero-image {
+        margin: 0;
+        width: 100%;
+        background: transparent;
+    }
+    .hero-image .editorial-image { 
+        width: auto; 
+        height: auto; 
+        max-width: 100%; 
+        max-height: 110mm; 
+        object-fit: contain; 
+    }
     
     .inline-image .editorial-image {
-        height: 60mm;
-        margin-top: 8pt;
-        margin-bottom: 8pt;
+        height: 55mm;
+        margin-top: 6pt;
+        margin-bottom: 6pt;
     }
 
     .full-bleed-image {
-        margin-left: -15mm !important;
-        margin-right: -15mm !important;
-        width: 154mm !important;
-        margin-top: 15pt;
-        margin-bottom: 15pt;
+        margin-left: -12mm !important;
+        margin-right: -12mm !important;
+        width: calc(100% + 24mm) !important;
+        margin-top: 10pt;
+        margin-bottom: 10pt;
     }
     
     .full-bleed-image .editorial-image {
-        height: 90mm;
-        border-left: none;
-        border-right: none;
+        height: 70mm;
+        border: none;
     }
     
-    .left-float { width: 45%; margin-right: 10pt; margin-bottom: 6pt; }
-    .right-float { width: 45%; margin-left: 10pt; margin-bottom: 6pt; }
+    .left-float { width: 42%; margin-right: 8pt; margin-bottom: 6pt; }
+    .right-float { width: 42%; margin-left: 8pt; margin-bottom: 6pt; }
 
-    /* Interactive Elements -> Print */
-    .timeline { padding-left: 10pt; margin-left: 4pt; border-color: black; }
-    .timeline-item::before { width: 3pt; height: 3pt; left: -11.5pt; top: 3pt; border-color: black; background-color: white; }
-    .timeline-item { margin-bottom: 8pt; break-inside: avoid; }
-    .year { font-size: 7.5pt; color: black; border: none; }
-
+    /* --- Print Blockquotes --- */
     blockquote {
-        font-size: 10.5pt;
-        padding: 12pt 15pt;
-        margin: 12pt 0;
-        border-left: 1pt solid black;
-        background-color: transparent;
+        font-size: 9.5pt;
+        padding: 10pt 12pt 10pt 14pt;
+        margin: 10pt 0;
+        border-left: 1.5pt solid black;
+        background: transparent;
         break-inside: avoid;
         color: black;
     }
-    
     blockquote::before { display: none; }
-    blockquote cite { font-size: 7pt; margin-top: 6pt; color: black; }
+    blockquote cite { font-size: 6.5pt; margin-top: 5pt; color: black; }
 
-    /* Budget Table Print */
+    /* --- Print Budget Table --- */
     .budget-table {
-        margin: 15pt 0;
-        font-size: 7.5pt;
+        margin: 10pt 0;
+        font-size: 7pt;
         border: 0.5pt solid black;
         box-shadow: none;
     }
-    
-    .budget-table th { background-color: transparent; color: black; border-bottom: 1pt solid black; padding: 4pt; }
-    .budget-table td { border-bottom: 0.5pt solid #999; padding: 4pt; }
+    .budget-table thead { background: transparent; }
+    .budget-table th { color: black; border-bottom: 1pt solid black; padding: 4pt 5pt; background: transparent; }
+    .budget-table td { border-bottom: 0.25pt solid #aaa; padding: 3.5pt 5pt; }
     .budget-table td:nth-child(2) { color: black; }
-    .budget-table tfoot td { border-top: 1.5pt solid black; background-color: transparent; }
+    .budget-table tbody tr:nth-child(even) { background: transparent; }
+    .budget-table tfoot td { border-top: 1pt solid black; background: transparent; }
 
-    /* Hide Digital-Only, Show Print-Only */
+    /* --- Print Utility --- */
     .digital-only { display: none !important; }
     .print-only { display: flex !important; }
 
-    /* QR Print Styling */
+    /* --- Print QR --- */
     .qr-container {
         justify-content: center;
-        gap: 20pt;
-        margin-top: 20pt;
-        padding-top: 10pt;
+        gap: 15pt;
+        margin-top: 15pt;
+        padding-top: 8pt;
         border-top: 0.5pt solid black;
     }
-
     .qr-code-box img {
-        width: 35mm;
-        height: 35mm;
+        width: 28mm;
+        height: 28mm;
         border: 0.5pt solid black;
         padding: 2pt;
     }
-
-    .qr-caption { font-size: 6pt; color: black; margin-top: 4pt; }
+    .qr-caption { font-size: 5.5pt; color: black; margin-top: 3pt; }
     
-    footer { display: none; }
+    footer { 
+        display: block; 
+        margin-top: 15pt;
+        padding: 6pt 0 0 0;
+        border-top: 0.5pt solid black;
+        font-size: 5.5pt;
+        color: black;
+    }
+
+    /* --- Print List Styling --- */
+    .theory-list li, .inquiries-list li {
+        border-left: 1pt solid #999;
+        padding-left: 8pt;
+        margin-bottom: 6pt;
+    }
 }
