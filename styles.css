@@ -1,5 +1,5 @@
 /* ============================================
-   FOUNDLING LEAFLET — PREMIUM EDITORIAL DESIGN
+   FOUNDLING LEAFLET — PREMIUM CURATORIAL DESIGN
    ============================================ */
 
 /* --- Custom Properties --- */
@@ -248,13 +248,13 @@ blockquote cite {
 /* ===========================================
    IMAGES
    =========================================== */
-.editorial-image-container {
+.CURATORIAL-image-container {
     margin-bottom: 2.5rem;
     overflow: hidden;
     position: relative;
 }
 
-.editorial-image {
+.CURATORIAL-image {
     width: 100%;
     display: block;
     object-fit: cover;
@@ -263,7 +263,7 @@ blockquote cite {
     transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), filter 0.6s ease;
 }
 
-.editorial-image-container:hover .editorial-image {
+.CURATORIAL-image-container:hover .CURATORIAL-image {
     transform: scale(1.03);
     filter: grayscale(0%) contrast(100%);
 }
@@ -277,7 +277,7 @@ blockquote cite {
     width: calc(100% + var(--page-gutter) * 2);
 }
 
-.hero-image .editorial-image {
+.hero-image .CURATORIAL-image {
     width: auto;
     height: auto;
     max-width: 100%;
@@ -286,12 +286,12 @@ blockquote cite {
     filter: grayscale(60%) contrast(120%) brightness(0.95);
 }
 
-.hero-image:hover .editorial-image {
+.hero-image:hover .CURATORIAL-image {
     filter: grayscale(0%) contrast(100%) brightness(1);
 }
 
 /* Inline */
-.inline-image .editorial-image {
+.inline-image .CURATORIAL-image {
     height: 280px;
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -303,7 +303,7 @@ blockquote cite {
     width: calc(100% + var(--page-gutter) * 2);
 }
 
-.full-bleed-image .editorial-image {
+.full-bleed-image .CURATORIAL-image {
     height: 380px;
     border: none;
 }
@@ -613,7 +613,7 @@ footer {
     }
 
     /* --- Print Images --- */
-    .editorial-image {
+    .CURATORIAL-image {
         filter: grayscale(100%) contrast(120%) !important;
         border: 1pt solid #666;
     }
@@ -623,7 +623,7 @@ footer {
         width: 100%;
         background: transparent;
     }
-    .hero-image .editorial-image { 
+    .hero-image .CURATORIAL-image { 
         width: auto; 
         height: auto; 
         max-width: 100%; 
@@ -631,7 +631,7 @@ footer {
         object-fit: contain; 
     }
     
-    .inline-image .editorial-image {
+    .inline-image .CURATORIAL-image {
         height: 80mm;
         margin-top: 10pt;
         margin-bottom: 10pt;
@@ -645,7 +645,7 @@ footer {
         margin-bottom: 15pt;
     }
     
-    .full-bleed-image .editorial-image {
+    .full-bleed-image .CURATORIAL-image {
         height: 100mm;
         border-left: none;
         border-right: none;
